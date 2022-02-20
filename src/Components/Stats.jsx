@@ -26,7 +26,7 @@ import Navbar from "./Navbar";
 
 const Stats = () => {
   const [jugador, setJugador] = useState("")
-  const [preguntas, setPreguntas] = useState(5);
+  const preguntas = 5;
   const [resultados, setResultados] = useState([]);
   const [incorrectas, setIncorrectas] = useState(0);
   const correctas = localStorage.getItem("correctas");
@@ -48,7 +48,7 @@ const Stats = () => {
     getInfo();
     calcDiferencia();
     getData();
-  }, []);
+  },);
 
   const estadisticas = {
     name: jugador,

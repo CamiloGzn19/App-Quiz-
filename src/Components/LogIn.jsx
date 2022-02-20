@@ -21,11 +21,11 @@ const LogIn = () => {
 
   const [animacion, setAnimacion] = useState(true);
 
-  const [usuario, setUsuario] = useState({
+  const usuario = {
     nombre: "Francisco",
     apellido: "Javier",
     correo: "francisco.javier@gmail.com",
-  });
+  };
 
   const sendInfo = () => {
     sessionStorage.setItem("usuario", JSON.stringify(usuario));
