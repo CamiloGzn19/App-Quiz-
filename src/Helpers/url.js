@@ -1,0 +1,1 @@
+export const url = 'https://data-sprint2.herokuapp.com/dashboard/'
