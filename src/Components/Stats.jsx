@@ -38,8 +38,6 @@ const Stats = () => {
     setJugador( data.nombre + " " + data.apellido );
   }
 
-  console.log(jugador)
-
   const calcDiferencia = () => {
     setIncorrectas(preguntas - correctas);
   };

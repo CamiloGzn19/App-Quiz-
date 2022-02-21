@@ -69,10 +69,6 @@ const Questions = () => {
         Ver resultados
       </Return>
     );
-
-  console.log(preguntaActual);
-  console.log(puntuacion);
-
   return (
     <div>
       <ProBar>
@@ -114,13 +110,7 @@ const Questions = () => {
                   onClick={(e) => handleScore(resp.isCorrect, e)}
                 >
                   <Options>{resp.response}</Options>
-                  <Input
-                    type="radio"
-                    label=""
-                    value=""
-                    name="responses"
-                    id=""
-                  />
+                  <Input name="select" type="radio"/>
                 </Box>
               ))}
             </Responses>

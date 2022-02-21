@@ -43,7 +43,7 @@ export const Follow = styled.a`
   color: white;
   text-decoration: none;
 
-  &:active {
+  &:focus {
     color: #2cb67d;
   }
 `;

@@ -162,13 +162,14 @@ export const Options = styled.div`
 
 export const Input = styled.input`
   position: relative;
+  width: 24px;
+  height: 24px;
   background-color: #232e35;
-  border: 2px solid white;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  margin-left: 288px;
-  bottom: 21px;
+  margin-left: 278px;
+  bottom: 25px;
+  &:checked{
+    background-color: red;
+  }
 `;
 
 //Preguntas tipo 2
