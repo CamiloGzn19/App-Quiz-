@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { questions1 } from "../Helpers/Preguntas";
 import {
   Container,
@@ -19,11 +19,21 @@ import LinearProgress from "@mui/material/LinearProgress";
 import { Link } from "react-router-dom";
 
 const Questions = () => {
+  const [vidas, setVidas] = useState(5);
+  const [time, setTime] = useState(0)
   const [preguntaActual, setPreguntaActual] = useState(0);
   const [puntuacion, setPuntuacion] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
+  const [correct, setCorrect] = useState(true);
   const [progress, setProgress] = useState(0);
   const [validar, setValidar] = useState("btn1");
+
+  const newTime = setInterval(() => {
+    setTime(time + 1);
+    clearInterval(newTime);
+  }, 1000)
+
+  console.log(time);
 
   function handleScore(isCorrect, e) {
     e.preventDefault();
@@ -33,9 +43,17 @@ const Questions = () => {
         setValidar("btn1");
       } else {
         setValidar("btn2");
+        setCorrect(false)
       }
     }, 20);
   }
+
+  const handleVidas = () => {
+    setCorrect(correct ? console.log("good") : console.log("Bad"));
+    if (correct === false) {
+      setVidas(vidas - 1);
+    }
+  };
 
   function handleAnswerSubmit(isCorrect, e) {
     e.preventDefault();
@@ -52,6 +70,7 @@ const Questions = () => {
   function saveScore() {
     if (isFinished) {
       localStorage.setItem("correctas", JSON.stringify(puntuacion));
+      localStorage.setItem("tiempo", JSON.stringify(time));
     } else {
       console.log("Continue");
     }
@@ -93,7 +112,7 @@ const Questions = () => {
           />
         </Bar>
         <Vida src="https://res.cloudinary.com/dilwbkj5s/image/upload/v1644891972/Sprint%202/icons%20/Property_1_heart_fbrb3e.svg" />
-        <VidaRes>4</VidaRes>
+        <VidaRes>{vidas}</VidaRes>
       </ProBar>
       <Container>
         <LinearProgress variant="determinate" value={25} />
@@ -110,7 +129,7 @@ const Questions = () => {
                   onClick={(e) => handleScore(resp.isCorrect, e)}
                 >
                   <Options>{resp.response}</Options>
-                  <Input name="select" type="radio"/>
+                  <Input name="select" type="radio" />
                 </Box>
               ))}
             </Responses>
@@ -120,7 +139,10 @@ const Questions = () => {
                 key={resp.response}
                 variant="primary"
                 type="submit"
-                onClick={(e) => handleAnswerSubmit(resp.isCorrect, e)}
+                onClick={(e) => {
+                  handleAnswerSubmit(resp.isCorrect, e);
+                  handleVidas();
+                }}
               >
                 COMPROBAR
               </button>

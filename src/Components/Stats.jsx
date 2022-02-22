@@ -30,7 +30,16 @@ const Stats = () => {
   const [resultados, setResultados] = useState([]);
   const [incorrectas, setIncorrectas] = useState(0);
   const correctas = localStorage.getItem("correctas");
+  const tiempo = localStorage.getItem("tiempo");
+  let [horas, setHoras] = useState(0)
 
+  const CalcTime = () => {
+    if(tiempo < 3600) {
+      setHoras(horas = 1)
+    } else if (tiempo > 3600 && tiempo < 7200) {
+      setHoras(horas = 2)
+    }
+  }
 
   function getInfo() {
     let data = sessionStorage.getItem("usuario");
@@ -46,6 +55,7 @@ const Stats = () => {
     getInfo();
     calcDiferencia();
     getData();
+    CalcTime();
   },);
 
   const estadisticas = {
@@ -98,7 +108,7 @@ const Stats = () => {
           <Block>
             <Imagen src="https://res.cloudinary.com/dilwbkj5s/image/upload/v1644891970/Sprint%202/icons%20/Property_1_clock_f8yhyj.svg" />
             <Desc>Tiempo de estudio (horas)</Desc>
-            <Valor>1</Valor>
+            <Valor>{horas}</Valor>
           </Block>
           <Block>
             <Imagen src="https://res.cloudinary.com/dilwbkj5s/image/upload/v1644891970/Sprint%202/icons%20/Property_1_message-circle_dg6lsq.svg" />
