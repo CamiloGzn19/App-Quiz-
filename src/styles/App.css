@@ -40,11 +40,6 @@
   box-shadow: 0px 4px 0px 0px #0f915b;
 }
 
-.btn2:focus{
-  background-color: #EF4565;
-  box-shadow: 0px 4px 0px 0px #B81E3B;
-}
-
 .btn2{
   position: fixed;
   bottom: 0;
@@ -60,3 +55,9 @@
   font-weight: 500;
   background-color: #6b47dc;
 }
+
+.btn2:focus{
+  background-color: #EF4565;
+  box-shadow: 0px 4px 0px 0px #B81E3B;
+}
+

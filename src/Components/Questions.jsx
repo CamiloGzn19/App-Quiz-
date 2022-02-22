@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { questions1 } from "../Helpers/Preguntas";
 import {
   Container,
@@ -20,7 +20,7 @@ import { Link } from "react-router-dom";
 
 const Questions = () => {
   const [vidas, setVidas] = useState(5);
-  const [time, setTime] = useState(0)
+  const [time, setTime] = useState(0);
   const [preguntaActual, setPreguntaActual] = useState(0);
   const [puntuacion, setPuntuacion] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
@@ -31,9 +31,7 @@ const Questions = () => {
   const newTime = setInterval(() => {
     setTime(time + 1);
     clearInterval(newTime);
-  }, 1000)
-
-  console.log(time);
+  }, 1000);
 
   function handleScore(isCorrect, e) {
     e.preventDefault();
@@ -43,19 +41,19 @@ const Questions = () => {
         setValidar("btn1");
       } else {
         setValidar("btn2");
-        setCorrect(false)
+        setCorrect(false);
       }
     }, 20);
   }
 
-  const handleVidas = () => {
-    setCorrect(correct ? console.log("good") : console.log("Bad"));
+  const handleVidas = (e) => {
+    e.preventDefault();
     if (correct === false) {
       setVidas(vidas - 1);
-    }
+    } 
   };
 
-  function handleAnswerSubmit(isCorrect, e) {
+  function handleAnswerSubmit(e) {
     e.preventDefault();
     setTimeout(() => {
       if (preguntaActual === questions1.length - 1) {
@@ -76,11 +74,9 @@ const Questions = () => {
     }
   }
 
-  saveScore();
-
   if (isFinished)
     return (
-      <Return onClick={() => (window.location.href = "/Stats")}>
+      <Return onClick={() => {(window.location.href = "/Stats"); saveScore()}}>
         <ImgRes
           src="https://res.cloudinary.com/dilwbkj5s/image/upload/v1644891959/Sprint%202/images/Color_white_Container_No_urw2bl.png"
           alt="logo"
@@ -134,18 +130,20 @@ const Questions = () => {
               ))}
             </Responses>
             {questions1[preguntaActual].options.map((resp) => (
-              <button
-                className={validar}
-                key={resp.response}
-                variant="primary"
-                type="submit"
-                onClick={(e) => {
-                  handleAnswerSubmit(resp.isCorrect, e);
-                  handleVidas();
-                }}
-              >
-                COMPROBAR
-              </button>
+              <div>
+                <button
+                  className={validar}
+                  key={resp.response}
+                  variant="primary"
+                  type="submit"
+                  onClick={(e) => {
+                    handleVidas(e);
+                    handleAnswerSubmit(e);
+                  }}
+                >
+                  COMPROBAR
+                </button>
+              </div>
             ))}
           </Form>
         </div>
