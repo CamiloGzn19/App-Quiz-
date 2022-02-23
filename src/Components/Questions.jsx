@@ -50,7 +50,7 @@ const Questions = () => {
     e.preventDefault();
     if (correct === false) {
       setVidas(vidas - 1);
-    } 
+    }
   };
 
   function handleAnswerSubmit(e) {
@@ -76,7 +76,12 @@ const Questions = () => {
 
   if (isFinished)
     return (
-      <Return onClick={() => {(window.location.href = "/Stats"); saveScore()}}>
+      <Return
+        onClick={() => {
+          window.location.href = "/Stats";
+          saveScore();
+        }}
+      >
         <ImgRes
           src="https://res.cloudinary.com/dilwbkj5s/image/upload/v1644891959/Sprint%202/images/Color_white_Container_No_urw2bl.png"
           alt="logo"

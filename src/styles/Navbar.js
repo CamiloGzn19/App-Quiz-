@@ -23,27 +23,31 @@ export const Icons = styled.svg`
   }
 `;
 
-export const Titles = styled.div`
+export const BtnNav = styled.button`
   display: flex;
-  justify-content: space-between;
-  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  letter-spacing: 0.005em;
-  color: #fffffe;
-  margin-left: 26px;
-  margin-right: 26px;
-`;
-
-export const Follow = styled.a`
+  height: 50px;
+  border: 0;
+  background-color: transparent;
   font-family: Nunito;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
-  line-height: 19px;
   color: white;
   text-decoration: none;
-
-  &:focus {
+  svg {
+    path {
+      fill: white;
+    }
+    &:hover {
+      path {
+        fill: #2cb67d;
+      }
+    }
+  }
+  &:hover {
     color: #2cb67d;
   }
 `;
