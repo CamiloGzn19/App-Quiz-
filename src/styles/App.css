@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
 
 * {
   margin: 0;
@@ -14,12 +13,50 @@
 .fondo1 {
   width: 100vh;
   height: 100vh;
-  background-color: #7F5AF0;
+  background-color: #7f5af0;
   animation: flipInX;
   animation-duration: 4s;
 }
 
-.btn1{
+.Resp {
+  background-color: transparent;
+}
+
+.Resp1 {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 122px;
+  background-color: #acffcf;
+  color: black;
+}
+
+.Resp2 {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 122px;
+  background-color: #f9cfd7;
+  color: black;
+}
+
+.btn {
+  position: fixed;
+  bottom: 0;
+  color: white;
+  border: 0;
+  border-radius: 10px;
+  margin-left: 16px;
+  margin-bottom: 16px;
+  width: 328px;
+  height: 48px;
+  font-size: 14px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+  background-color: #6b47dc;
+}
+
+.btn1 {
   position: fixed;
   bottom: 0;
   color: white;
@@ -40,7 +77,7 @@
   box-shadow: 0px 4px 0px 0px #0f915b;
 }
 
-.btn2{
+.btn2 {
   position: fixed;
   bottom: 0;
   color: white;
@@ -56,8 +93,12 @@
   background-color: #6b47dc;
 }
 
-.btn2:focus{
-  background-color: #EF4565;
-  box-shadow: 0px 4px 0px 0px #B81E3B;
+.btn2:focus {
+  background-color: #ef4565;
+  box-shadow: 0px 4px 0px 0px #b81e3b;
 }
 
+
+.Good{
+  display: none;
+}

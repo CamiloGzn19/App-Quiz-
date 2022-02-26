@@ -29,10 +29,12 @@ export const VidaRes = styled.p`
   padding-left: 4px;
 `;
 
-export const Close = styled.img`
+export const Close = styled.button`
+  background-color: #16161a;
+  border: 0;
   width: 24px;
   height: 24px;
-  padding-right: 15px;
+  margin-right: 20px;
   fill: white;
   cursor: pointer;
 `;
@@ -66,7 +68,7 @@ export const Return = styled.button`
   font-family: Nunito;
   font-style: normal;
   font-size: 22px;
-  color: #7F5AF0;
+  color: #7f5af0;
   text-align: center;
   background-color: #16161a;
 `;
@@ -167,7 +169,7 @@ export const Input = styled.input`
   background-color: #232e35;
   margin-left: 278px;
   bottom: 25px;
-  &:checked{
+  &:checked {
     background-color: red;
   }
 `;

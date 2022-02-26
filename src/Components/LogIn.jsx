@@ -42,7 +42,7 @@ const LogIn = () => {
   if (animacion === true) {
     return (
       <Carga>
-        <Imagen
+        <Imagen 
           onClick={() => {
             handleRender()
           }}

@@ -69,7 +69,7 @@ export const Button1 = styled.a`
   background-color: #ef4565;
   margin-bottom: 16px;
   text-align: center;
-  padding-top: 18px;
+  padding-top: 20px;
   text-decoration: none;
 `;
 

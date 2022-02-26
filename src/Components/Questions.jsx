@@ -26,7 +26,7 @@ const Questions = () => {
   const [isFinished, setIsFinished] = useState(false);
   const [correct, setCorrect] = useState(true);
   const [progress, setProgress] = useState(0);
-  const [validar, setValidar] = useState("btn1");
+  const [validar, setValidar] = useState("btn");
 
   const newTime = setInterval(() => {
     setTime(time + 1);
@@ -77,8 +77,9 @@ const Questions = () => {
   if (isFinished)
     return (
       <Return
+        as={Link}
+        to="/stats"
         onClick={() => {
-          window.location.href = "/Stats";
           saveScore();
         }}
       >
@@ -92,14 +93,12 @@ const Questions = () => {
   return (
     <div>
       <ProBar>
-        <Close
-          as={Link}
-          to="/categories"
-          width="24"
-          height="24"
-          alt="back"
-          src="https://res.cloudinary.com/dilwbkj5s/image/upload/v1644891970/Sprint%202/icons%20/Property_1_x_twdni3.svg"
-        />
+        <Close as={Link} to="/categories">
+          <img
+            alt="back"
+            src="https://res.cloudinary.com/dilwbkj5s/image/upload/v1644891970/Sprint%202/icons%20/Property_1_x_twdni3.svg"
+          />
+        </Close>
         <Bar>
           <LinearProgress
             variant="determinate"
@@ -136,18 +135,20 @@ const Questions = () => {
             </Responses>
             {questions1[preguntaActual].options.map((resp) => (
               <div>
-                <button
-                  className={validar}
-                  key={resp.response}
-                  variant="primary"
-                  type="submit"
-                  onClick={(e) => {
-                    handleVidas(e);
-                    handleAnswerSubmit(e);
-                  }}
-                >
-                  COMPROBAR
-                </button>
+                <div>
+                  <button
+                    className={validar}
+                    key={resp.response}
+                    variant="primary"
+                    type="submit"
+                    onClick={(e) => {
+                      handleVidas(e);
+                      handleAnswerSubmit(e);
+                    }}
+                  >
+                    COMPROBAR
+                  </button>
+                </div>
               </div>
             ))}
           </Form>
